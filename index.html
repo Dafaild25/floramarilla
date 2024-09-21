@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/girasol.css">
+    <title>GIRASOL</title>
+</head>
+<body>
+    <div class="container">
+        <video id="video-original" autoplay muted loop>
+            <source src="video/fondo.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video. 
+
+        </video>
+        <!-- Video alternativo -->
+        <video id="video-alternativo" autoplay muted loop>
+            <source src="video/fondoV2.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <div class="container-texto ">
+            <p class="carta">
+                SOMOS PROGRAMADORES HACEMOS LO QUE PODEMOS 
+                <br> Ten una flor amarilla 
+                <br>
+                Atentamente: <br>El David
+            </p>
+            <button id="btn-audio" class="fluorescent-btn"> <a href="#">Reproducir</a> </button>
+            <!-- Audio -->
+            <audio id="audio-control">
+                <source src="sound/nueve.mp3" type="audio/mp3">
+                Tu navegador no soporta la etiqueta de audio.
+            </audio>
+            <br>
+            <!-- Canvas para el efecto de frecuencia -->
+            <canvas id="audio-visualizer" width="500" height="100"></canvas>
+
+        </div>
+        
+        
+
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>

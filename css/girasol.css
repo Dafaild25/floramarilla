@@ -1,0 +1,136 @@
+/* Asegura que todo el cuerpo ocupe toda la ventana del navegador */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Evita el desplazamiento */
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 100%;
+    height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+    overflow: hidden;
+}
+
+
+
+.container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    transition: opacity 1s ease-in-out; /* Transición suave de opacidad */
+    z-index: -1; /* Asegura que el video esté detrás del texto */
+}
+
+/* El video alternativo comienza oculto */
+#video-alternativo {
+    opacity: 0;
+}
+
+/* Contenedor de texto centrado */
+.container-texto {
+    z-index: 1; /* El texto debe estar por encima del video */
+    color: white;
+    font-size: 1vw; /* Tamaño de fuente responsivo */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad */
+    padding: 20px;
+    border-radius: 10px;
+    width: 35%; /* Ancho del contenedor */
+    height: 35%; /* Alto del contenedor */
+    display: flex; /* Flexbox para centrar el contenido */
+    flex-direction: column; /* Direccion de la columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    margin: auto; /* Centra el contenedor en la pantalla */
+    position: relative; /* Para posicionar sobre el video */
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+.container-texto #audio-visualizer {
+    width: 100%;      /* El canvas se ajustará al ancho del contenedor */
+    height: 50px;     /* Ajusta la altura del canvas para hacerlo pequeño */
+    background-color: black;  /* Añade un fondo oscuro para resaltar las frecuencias */
+    display: block;
+    margin: 0 auto;   /* Centra el canvas debajo del botón */
+    border-radius: 5px; /* Esquinas redondeadas para mejorar el estilo */
+}
+
+
+.container-texto p {
+    margin: 0; /* Elimina márgenes predeterminados */
+    line-height: 1.5; /* Mejora la legibilidad */
+    color: white;
+    overflow-wrap: break-word; /* Permite que el texto se ajuste */
+}
+
+.carta  {
+    font-size: medium; /* Ajusta el tamaño según sea necesario */
+    font-weight: bold;
+    color: black;
+    text-shadow: 
+        -1px -1px 0 white, /* Bordes negros en las cuatro direcciones */
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white,
+    font-weight: 100%;
+    display: inline-block; /* Para que funcione la animación */
+    animation: glow 5s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        color: #fff; /* Color blanco al inicio y al final */
+        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6; /* Efecto de brillo */
+    }
+    10%, 90% {
+        color: #e5dddd; /* Color oscuro en el medio de la animación */
+        text-shadow: none; /* Sin sombra en el medio de la animación */
+    }
+}
+/* Botón fluorescente */
+.fluorescent-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px; /* Puedes ajustar esto si es necesario */
+    color: yellow; /* Texto amarillo fluorescente */
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid yellow; /* Borde fluorescente */
+    border-radius: 30px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: 0.3s;
+    text-shadow: 0 0 10px yellow; /* Efecto de fluorescencia */
+}
+
+.fluorescent-btn:hover {
+    background-color: rgba(255, 255, 0, 0.2); /* Fondo semitransparente al pasar el mouse */
+    box-shadow: 0 0 20px yellow, 0 0 40px yellow; /* Efecto de resplandor en hover */
+    color: white; /* Cambia el color del texto al hacer hover */
+}
+
+.fluorescent-btn a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color del botón */
+}
+/* Media query para tamaños más pequeños */
+@media (max-width: 600px) {
+    .container-texto {
+        width: 90%; /* Aumenta el ancho en pantallas pequeñas */
+        height: auto; /* Permite que la altura se ajuste */
+    }
+
+    .container-texto p {
+        font-size: 4vw; /* Tamaño de fuente más pequeño */
+    }
+}
