@@ -84,9 +84,10 @@ html, body {
         1px -1px 0 white,
         -1px 1px 0 white,
         1px 1px 0 white,
+        
     font-weight: 100%;
-    display: inline-block; /* Para que funcione la animación */
-    animation: glow 5s ease-in-out infinite;
+
+    
 }
 
 @keyframes glow {
